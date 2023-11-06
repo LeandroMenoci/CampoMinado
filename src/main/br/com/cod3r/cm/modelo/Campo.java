@@ -74,12 +74,20 @@ public class Campo {
         minado = true;
     }
 
+    public boolean isMinado() {
+        return minado;
+    }
+
     public boolean isMarcado() {
         return marcado;
     }
 
     public boolean isAberto() {
         return aberto;
+    }
+
+    void setAberto(boolean aberto) {
+        this.aberto = aberto;
     }
 
     public boolean isFechado() {
@@ -94,7 +102,7 @@ public class Campo {
         return coluna;
     }
 
-    boolean objjetivoAlcancado() {
+    boolean objetivoAlcancado() {
         boolean desvendado = !minado && aberto;
         boolean protegido =  minado && marcado;
         return desvendado || protegido;
@@ -112,7 +120,7 @@ public class Campo {
 
     public String toString() {
         if(marcado) {
-            return "x";
+            return "X";
         } else if(aberto && minado) {
             return "*";
         } else if(aberto && minasNaVizinhanca() > 0) {
@@ -120,7 +128,7 @@ public class Campo {
         } else if (aberto) {
             return " ";
         } else {
-            return "?";
+            return "O";
         }
     }
 }
